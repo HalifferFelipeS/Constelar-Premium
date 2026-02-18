@@ -1,0 +1,53 @@
+import { ArrowDown } from "lucide-react";
+
+const HeroSection = () => {
+  return (
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
+      {/* Gradient orbs */}
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-cosmic-blue/10 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-cosmic-violet/10 blur-[100px] pointer-events-none" />
+
+      <div className="relative z-10 max-w-4xl text-center">
+        <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-8">
+          <span className="w-2 h-2 rounded-full bg-cosmic-glow animate-pulse" />
+          <span className="text-sm text-muted-foreground font-body tracking-wide">
+            Estúdio Criativo Digital
+          </span>
+        </div>
+
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.95] tracking-tight mb-6">
+          Transformamos ideias em{" "}
+          <span className="gradient-text">constelações digitais</span>
+        </h1>
+
+        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 font-body leading-relaxed">
+          Criamos experiências digitais que conectam marcas às estrelas. Apps, design gráfico e identidades visuais que brilham.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="#projetos"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-display font-semibold text-primary-foreground bg-gradient-to-r from-cosmic-blue via-cosmic-violet to-primary transition-all duration-300 hover:scale-105 glow-sm hover:glow-md"
+          >
+            Ver Projetos
+          </a>
+          <a
+            href="#contato"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-display font-semibold glass-hover"
+          >
+            Fale Conosco
+          </a>
+        </div>
+      </div>
+
+      <a
+        href="#projetos"
+        className="absolute bottom-10 z-10 animate-float text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <ArrowDown size={24} />
+      </a>
+    </section>
+  );
+};
+
+export default HeroSection;
