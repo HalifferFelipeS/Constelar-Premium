@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 
 const projects = [
@@ -46,7 +47,13 @@ const BentoGrid = ({ images }: BentoGridProps) => {
   return (
     <section id="projetos" className="relative py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+        >
           <span className="text-sm font-body uppercase tracking-widest text-cosmic-glow mb-4 block">
             Portfólio
           </span>
@@ -54,15 +61,24 @@ const BentoGrid = ({ images }: BentoGridProps) => {
             Projetos que{" "}
             <span className="gradient-text">brilham</span>
           </h2>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto">
           {projects.map((project, i) => (
-            <ProjectCard
+            <motion.div
               key={project.title}
-              {...project}
-              image={images[i] || ""}
-            />
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className={project.className}
+            >
+              <ProjectCard
+                {...project}
+                image={images[i] || ""}
+                className="h-full"
+              />
+            </motion.div>
           ))}
         </div>
       </div>
